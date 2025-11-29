@@ -97,7 +97,6 @@ After computing individual scores, tasks are sorted descending and returned with
 |Algorithm Testing & Unit Tests	                                                        |1 hour    |
 |Bonus Features (Smart Balance, Weekend-aware urgency, circular dependency detection)	  |1.5 hours |
 |Documentation & README	                                                                | 1 hour   |
-|---------------------------------------------------------------------------------------|----------|
 |Total	                                                                                |8 hours   |
 
 
