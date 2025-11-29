@@ -1,21 +1,116 @@
-# 🧠 Smart Task Analyzer — Junikyun Edition  
-### A lightweight task-prioritization system powered by Django REST + Vanilla JS
+🧠 Smart Task Analyzer — Junikyun Edition
 
-This project analyzes tasks using intelligent scoring strategies to help users decide *what to work on next*.  
-It was built as part of the **Singularium Internship Assignment 2025**.
+A lightweight, full-stack task prioritization system that helps users decide what to work on next.
+Built using Django REST Framework for the backend and Vanilla JavaScript + HTML/CSS for the frontend.
 
----
+This project was created as part of the Singularium Internship Assignment (2025).
 
-## 🎯 Features at a Glance
 
-✔ REST API built with Django REST Framework  
-✔ Frontend built using HTML + CSS + JavaScript  
-✔ Multiple analysis strategies  
-✔ Color-coded priority results  
-✔ Circular dependency detection  
-✔ Weekend-aware urgency logic  
-✔ Top-3 Suggestion API  
-✔ JSON bulk input support  
+🚀Features
+
+Analyze tasks based on urgency, importance, effort, and dependencies.
+
+Supports multiple prioritization strategies:
+smart → balanced approach
+fastest → favors low-effort tasks
+impact → favors high-importance tasks
+deadline → favors urgent tasks
+Detects circular dependencies among tasks.
+Returns top 3 suggestions for "what should I do now?".
+
+
+User-friendly frontend with task form, JSON input, and visual priority indicators.
+
+🛠️ Setup Instructions
+1. Clone the repository:
+git clone https://github.com/Devika-Gowda/task-analyzer.git
+cd task-analyzer
+
+2. Create a virtual environment and activate it:
+python -m venv venv
+source venv/bin/activate   # Linux / macOS
+venv\Scripts\activate      # Windows
+
+3. Install dependencies:
+pip install -r requirements.txt
+
+4. Run the server:
+python manage.py runserver
+
+Backend API will be available at http://127.0.0.1:8000/api/tasks/analyze/.
+
+5. Open the frontend:
+Open index.html in your browser. Input tasks manually or paste JSON, select a strategy, and analyze.
+
+Algorithm Explanation:
+
+The priority scoring algorithm assigns each task a numeric score between 0–100 using four factors:
+1.	Urgency
+o	Converts the due date into a score, where near-deadline or past-due tasks get higher scores.
+o	Includes weekend adjustment, reducing urgency by 10% on Saturdays/Sundays.
+
+2.	Importance
+o	Based on user input (1–10). Normalized to a 0–100 scale.
+
+3.	Effort
+o	Low-effort tasks receive higher scores to promote quick wins.
+o	Computed using an inverse logarithmic function to avoid extreme differences.
+
+4.	Dependency Impact
+o	Tasks that many other tasks depend on are given higher scores.
+o	Computed as a percentage of maximum dependency counts.
+
+Weighted Scoring & Strategies:
+Default (smart): balanced weight between urgency, importance, effort, and dependency.
+Other strategies adjust weights to emphasize one factor over others:
+
+fastest → more weight to effort
+impact → more weight to importance
+deadline → more weight to urgency
+
+Circular Dependency Detection:
+Uses Kahn’s topological sorting algorithm to detect cycles.
+If cycles exist, a warning is displayed on the frontend.
+After computing individual scores, tasks are sorted descending and returned with a detailed explanation of each factor.
+
+
+💡 Design Decisions
+•	No database storage: simplifies the assignment and focuses on scoring logic.
+•	Task IDs: fallback to title if id missing; ensures unique identification in frontend & backend.
+•	Frontend: lightweight, minimal dependencies, works without server-side rendering.
+•	Scoring weights: chosen for balance but adjustable per strategy for flexibility.
+•	JSON input option: supports bulk task input and testing.
+
+Trade-offs:
+•	Did not implement persistent storage due to assignment scope.
+•	No user authentication or multi-user support.
+•	Circular dependency visualization limited to warning message.
+
+
+Section / Task	                                                                                      Time Spent
+Backend Development (models, scoring algorithm)	                                                        2 hours
+API Endpoints (analyze & suggest)	                                                                      1 hour
+Frontend Development (form, JSON input, strategy toggle)	                                              1.5 hours
+Algorithm Testing & Unit Tests	                                                                        1 hour
+Bonus Features (Smart Balance, Weekend-aware urgency, circular dependency detection)	                  1.5 hours
+Documentation & README	                                                                                1 hour
+Total	                                                                                                  8 hours
+
+
+Bonus Challenges Implemented:
+•	JSON bulk input for multiple tasks
+•	Smart Balance mode for workload distribution
+•	Weekend-aware urgency calculation
+•	Circular dependency detection
+
+
+Future Improvements:
+•	Visual dependency graph for tasks
+•	Eisenhower Matrix view (Urgent vs Important)
+•	Learning system to adjust algorithm based on user feedback
+•	Full mobile-first responsive redesign
+•	Integration with external calendar APIs for real-time deadlines
+
 
 ---
 
