@@ -89,12 +89,12 @@ Trade-offs:
 
 Section / Task	                                                                                      Time Spent
 Backend Development (models, scoring algorithm)	                                                        2 hours
-API Endpoints (analyze & suggest)	                                                                      1 hour
-Frontend Development (form, JSON input, strategy toggle)	                                              1.5 hours
+API Endpoints (analyze & suggest)	                                                                    1 hour
+Frontend Development (form, JSON input, strategy toggle)	                                            1.5 hours
 Algorithm Testing & Unit Tests	                                                                        1 hour
-Bonus Features (Smart Balance, Weekend-aware urgency, circular dependency detection)	                  1.5 hours
+Bonus Features (Smart Balance, Weekend-aware urgency, circular dependency detection)	                1.5 hours
 Documentation & README	                                                                                1 hour
-Total	                                                                                                  8 hours
+Total	                                                                                                8 hours
 
 
 Bonus Challenges Implemented:
