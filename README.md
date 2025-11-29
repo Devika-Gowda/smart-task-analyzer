@@ -181,4 +181,4 @@ Built for the Singularium Internship Assignment 2025
 
 ---
 
-If you like this project, ⭐ star it on GitHub!
+
