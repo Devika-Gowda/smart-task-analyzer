@@ -1,5 +1,4 @@
-## 🧠 Smart Task Analyzer — Junikyun Edition
-
+## 🧠 Smart Task Analyzer
 A lightweight, full-stack task prioritization system that helps users decide what to work on next.
 Built using Django REST Framework for the backend and Vanilla JavaScript + HTML/CSS for the frontend.
 
